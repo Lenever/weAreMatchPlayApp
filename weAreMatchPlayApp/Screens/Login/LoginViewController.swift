@@ -10,7 +10,13 @@ import SnapKit
 import MaterialComponents.MaterialTextControls_FilledTextAreas
 import MaterialComponents.MaterialTextControls_FilledTextFields
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+protocol LoginDisplayLogic {
+    func displaySuccessAlert(prompt: String)
+    func displayFailureAlert(prompt: String)
+}
+
+class LoginViewController: UIViewController {
+    var loginInteractor: LoginBusinessLogic?
     var titleLabel = UILabel()
     var emailLabel = MDCFilledTextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var passwordLabel = MDCFilledTextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -25,6 +31,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setUp() {
         passwordLabel.delegate = self
         passwordLabel.enablePasswordToggle()
+//        let presenter = LoginPresenter()
+//        presenter.loginView = self
+//        let worker = LoginWorker()
+//        let interactor = LoginInteractor()
+//        interactor.presenter = presenter
+//        interactor.worker = worker
+//        self.loginInteractor = interactor
     }
     
     func layoutSubviews() {
@@ -46,8 +59,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func setupTitleLabel() {
         view.addSubview(titleLabel)
-        titleLabel.text = "Login"
-        titleLabel.font = UIFont(name: "AvenirNext-Medium", size: 50.0)
+        titleLabel.text = LoginConstants.titleText
+        titleLabel.font = UIFont(name: LoginConstants.avenir, size: 50.0)
         titleLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.7354719606)
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(view).offset(100)
@@ -58,8 +71,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func setupEmailLabel() {
         view.addSubview(emailLabel)
-        emailLabel.placeholder = "Email"
-        emailLabel.font = UIFont.init(name: "MontserratRegular", size: 10)
+        emailLabel.placeholder = LoginConstants.emailPlaceholder
+        emailLabel.font = UIFont.init(name: LoginConstants.montserrat, size: 10)
         emailLabel.setFilledBackgroundColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .editing)
         emailLabel.setFilledBackgroundColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         emailLabel.setUnderlineColor(#colorLiteral(red: 0.9921568627, green: 0.4274509804, blue: 0.003921568627, alpha: 1), for: .editing)
@@ -76,8 +89,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func setupPasswordLabel() {
         view.addSubview(passwordLabel)
-        passwordLabel.placeholder = "Password"
-        passwordLabel.font = UIFont.init(name: "MontserratRegular", size: 10)
+        passwordLabel.placeholder = LoginConstants.passwordPlaceholder
+        passwordLabel.font = UIFont.init(name: LoginConstants.montserrat, size: 10)
         passwordLabel.setFilledBackgroundColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .editing)
         passwordLabel.setFilledBackgroundColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         passwordLabel.setUnderlineColor(#colorLiteral(red: 0.9921568627, green: 0.4274509804, blue: 0.003921568627, alpha: 1), for: .editing)
@@ -95,10 +108,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func setupLoginButton() {
         view.addSubview(loginButton)
-        loginButton.setTitle("Sign in", for: .normal)
+        loginButton.setTitle(LoginConstants.loginButtonTitle, for: .normal)
         loginButton.contentHorizontalAlignment = .center
         loginButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0.4823529412, blue: 1, alpha: 1)
-        loginButton.titleLabel?.font = UIFont.init(name: "MontserratRegular", size: 10)
+        loginButton.titleLabel?.font = UIFont.init(name: LoginConstants.montserrat, size: 10)
         loginButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         loginButton.layer.cornerRadius = 22.5
         loginButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
@@ -116,10 +129,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func handleLogin() {
-//        if emailLabel.text != "" && passwordLabel.text != "" && (emailLabel.text?.isValidEmail)! {
-//            let view = RegistrationViewController()
-//            navigationController?.pushViewController(view, animated: true)
-//        }
+        if emailLabel.text != LoginConstants.emptyString && passwordLabel.text != LoginConstants.emptyString {
+            let userLoginDetail = LoginDataModel(email: emailLabel.text ?? String(), password: passwordLabel.text ?? String())
+            loginInteractor?.login(userDetail: userLoginDetail)
+        }
     }
+}
+
+extension LoginViewController: UITextFieldDelegate, LoginDisplayLogic {
+    func displaySuccessAlert(prompt: String) {
+        let view = ListUsersViewController()
+        view.userAPIToken = prompt
+        navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func displayFailureAlert(prompt: String) {
+        self.handleNetworkError(prompt: prompt)
+    }
+    
+    
 }
 

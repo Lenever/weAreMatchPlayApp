@@ -12,6 +12,7 @@ target 'weAreMatchPlayApp' do
   pod 'MaterialComponents/TextControls+FilledTextFields'
   pod 'MaterialComponents/TextControls+OutlinedTextAreas'
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
+  pod 'Alamofire', '~> 5.2'
 
   target 'weAreMatchPlayAppTests' do
     inherit! :search_paths
