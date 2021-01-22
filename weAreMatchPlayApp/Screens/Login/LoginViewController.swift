@@ -10,7 +10,13 @@ import SnapKit
 import MaterialComponents.MaterialTextControls_FilledTextAreas
 import MaterialComponents.MaterialTextControls_FilledTextFields
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+protocol LoginDisplayLogic {
+    func displaySuccessAlert(prompt: String)
+    func displayFailureAlert(prompt: String)
+}
+
+class LoginViewController: UIViewController {
+    var loginInteractor: LoginBusinessLogic?
     var titleLabel = UILabel()
     var emailLabel = MDCFilledTextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var passwordLabel = MDCFilledTextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -121,5 +127,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //            navigationController?.pushViewController(view, animated: true)
 //        }
     }
+}
+
+extension LoginViewController: UITextFieldDelegate, LoginDisplayLogic {
+    func displaySuccessAlert(prompt: String) {
+//        let view = SignupViewController()
+//        navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func displayFailureAlert(prompt: String) {
+        self.handleNetworkError(prompt: prompt)
+    }
+    
+    
 }
 
