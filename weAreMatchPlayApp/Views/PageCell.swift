@@ -27,9 +27,21 @@ class PageCell: UICollectionViewCell {
     var verificationLabel = UILabel()
     var moreButton = UIButton()
     
+//    var pages: Datum? {
     var pages: CollectionViewPageCells? {
         didSet {
             updateUI()
+//            if let pages = pages {
+//                title.text = pages.course?.name
+//                date.text = pages.playedAt
+//                comment.text = pages.datumDescription
+//                likeButtonLabel.text = String(pages.commentCount ?? Int()) 
+//                guard let url = URL(string: pages.images?[0].imageDefault ?? String()) else { return }
+//                UIImage.loadFrom(url: url) { image in
+//                    self.featuredImage.image = image
+//                }
+//                
+//            }
         }
     }
     

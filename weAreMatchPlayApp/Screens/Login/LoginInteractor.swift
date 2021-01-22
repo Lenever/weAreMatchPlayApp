@@ -12,7 +12,7 @@ protocol LoginBusinessLogic {
 }
 
 class LoginInteractor: LoginBusinessLogic {
-    var worker: loginWorkerProtocol?
+    var worker: LoginWorkerProtocol?
     var presenter: LoginPresentationLogic?
     
     func login(userDetail: LoginDataModel) {
