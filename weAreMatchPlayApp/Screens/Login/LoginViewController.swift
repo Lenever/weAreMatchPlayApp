@@ -31,6 +31,13 @@ class LoginViewController: UIViewController {
     func setUp() {
         passwordLabel.delegate = self
         passwordLabel.enablePasswordToggle()
+        let presenter = LoginPresenter()
+        presenter.loginView = self
+        let worker = LoginWorker()
+        let interactor = LoginInteractor()
+        interactor.presenter = presenter
+        interactor.worker = worker
+        self.loginInteractor = interactor
     }
     
     func layoutSubviews() {
@@ -122,17 +129,18 @@ class LoginViewController: UIViewController {
     }
     
     @objc func handleLogin() {
-//        if emailLabel.text != "" && passwordLabel.text != "" && (emailLabel.text?.isValidEmail)! {
-//            let view = RegistrationViewController()
-//            navigationController?.pushViewController(view, animated: true)
-//        }
+        if emailLabel.text != "" && passwordLabel.text != "" {
+            let userLoginDetail = LoginDataModel(email: emailLabel.text ?? String(), password: passwordLabel.text ?? String())
+            loginInteractor?.login(userDetail: userLoginDetail)
+        }
     }
 }
 
 extension LoginViewController: UITextFieldDelegate, LoginDisplayLogic {
     func displaySuccessAlert(prompt: String) {
-//        let view = SignupViewController()
-//        navigationController?.pushViewController(view, animated: true)
+        let view = ListUsersViewController()
+        view.userAPIToken = prompt
+        navigationController?.pushViewController(view, animated: true)
     }
     
     func displayFailureAlert(prompt: String) {

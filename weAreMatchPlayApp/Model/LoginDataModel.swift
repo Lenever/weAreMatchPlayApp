@@ -11,7 +11,7 @@ struct LoginDataModel {
     var email, password: String
 }
 
-struct LoginSuccessResponseDataModel {
+struct LoginSuccessResponseDataModel: Codable {
     let apiToken: String
     
     enum CodingKeys: String, CodingKey {

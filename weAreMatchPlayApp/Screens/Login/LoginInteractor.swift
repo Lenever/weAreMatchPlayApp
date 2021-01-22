@@ -16,10 +16,18 @@ class LoginInteractor: LoginBusinessLogic {
     var presenter: LoginPresentationLogic?
     
     func login(userDetail: LoginDataModel) {
-        worker?.login(userDetail: userDetail, success: { (successEmail) in
-            self.presenter?.displayDataSuccess(prompt: successEmail)
-        }, failure: { (error) in
-            self.presenter?.displayDataError(prompt: error)
+//        worker?.login(userDetail: userDetail, success: { (successEmail) in
+//            self.presenter?.displayDataSuccess(prompt: successEmail)
+//        }, failure: { (error) in
+//            self.presenter?.displayDataError(prompt: error)
+//        })
+        
+        worker?.login(userDetail: userDetail, completion: { (response, error) in
+            if response != nil {
+                self.presenter?.displayDataSuccess(prompt: response?.apiToken ?? String())
+            } else {
+                self.presenter?.displayDataError(prompt: error?.localizedDescription ?? String())
+            }
         })
     }
 }
