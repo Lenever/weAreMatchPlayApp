@@ -31,13 +31,13 @@ class LoginViewController: UIViewController {
     func setUp() {
         passwordLabel.delegate = self
         passwordLabel.enablePasswordToggle()
-        let presenter = LoginPresenter()
-        presenter.loginView = self
-        let worker = LoginWorker()
-        let interactor = LoginInteractor()
-        interactor.presenter = presenter
-        interactor.worker = worker
-        self.loginInteractor = interactor
+//        let presenter = LoginPresenter()
+//        presenter.loginView = self
+//        let worker = LoginWorker()
+//        let interactor = LoginInteractor()
+//        interactor.presenter = presenter
+//        interactor.worker = worker
+//        self.loginInteractor = interactor
     }
     
     func layoutSubviews() {
