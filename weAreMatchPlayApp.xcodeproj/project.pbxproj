@@ -23,6 +23,8 @@
 		04901FB925BAEDB200DDFE3B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FB825BAEDB200DDFE3B /* UIViewController+Extension.swift */; };
 		04901FCD25BB01DF00DDFE3B /* ListUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FCC25BB01DF00DDFE3B /* ListUsersViewController.swift */; };
 		04901FD525BB037500DDFE3B /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FD425BB037500DDFE3B /* StringConstants.swift */; };
+		04901FE925BB24E600DDFE3B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FE825BB24E600DDFE3B /* PageCell.swift */; };
+		04901FEE25BB253300DDFE3B /* CollectionViewPageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FED25BB253300DDFE3B /* CollectionViewPageCells.swift */; };
 		34F7BE69AC039A055E98CA10 /* Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04C8075B7D53E9702643C2 /* Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework */; };
 		57816BAA42555C804C215D5E /* Pods_weAreMatchPlayApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6073D3E364F57B60A6A7585A /* Pods_weAreMatchPlayApp.framework */; };
 		FA7D3E0D8A720B6D7491C828 /* Pods_weAreMatchPlayAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0B60C7C2206CB9DF31365A /* Pods_weAreMatchPlayAppTests.framework */; };
@@ -68,6 +70,8 @@
 		04901FB825BAEDB200DDFE3B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		04901FCC25BB01DF00DDFE3B /* ListUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersViewController.swift; sourceTree = "<group>"; };
 		04901FD425BB037500DDFE3B /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		04901FE825BB24E600DDFE3B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		04901FED25BB253300DDFE3B /* CollectionViewPageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPageCells.swift; sourceTree = "<group>"; };
 		0C2C3D2423E6DD1D5F27027B /* Pods-weAreMatchPlayApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weAreMatchPlayApp.release.xcconfig"; path = "Target Support Files/Pods-weAreMatchPlayApp/Pods-weAreMatchPlayApp.release.xcconfig"; sourceTree = "<group>"; };
 		1D04C8075B7D53E9702643C2 /* Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0B60C7C2206CB9DF31365A /* Pods_weAreMatchPlayAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weAreMatchPlayAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +139,7 @@
 				04901F6725BAD25600DDFE3B /* Screens */,
 				04901FA025BAEBE500DDFE3B /* Model */,
 				04901F8F25BAE1C200DDFE3B /* Extensions */,
+				04901FF225BB2B0D00DDFE3B /* Views */,
 				04901F3425BACFDA00DDFE3B /* AppDelegate.swift */,
 				04901F3625BACFDA00DDFE3B /* SceneDelegate.swift */,
 				04901F3D25BACFDE00DDFE3B /* Assets.xcassets */,
@@ -205,8 +210,17 @@
 			isa = PBXGroup;
 			children = (
 				04901FCC25BB01DF00DDFE3B /* ListUsersViewController.swift */,
+				04901FED25BB253300DDFE3B /* CollectionViewPageCells.swift */,
 			);
 			path = ListUsers;
+			sourceTree = "<group>";
+		};
+		04901FF225BB2B0D00DDFE3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04901FE825BB24E600DDFE3B /* PageCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0E1B5882C17E1D537EE8336A /* Pods */ = {
@@ -477,8 +491,10 @@
 				04901F9125BAE1DC00DDFE3B /* String+Extension.swift in Sources */,
 				04901F3925BACFDA00DDFE3B /* LoginViewController.swift in Sources */,
 				04901F3525BACFDA00DDFE3B /* AppDelegate.swift in Sources */,
+				04901FE925BB24E600DDFE3B /* PageCell.swift in Sources */,
 				04901FD525BB037500DDFE3B /* StringConstants.swift in Sources */,
 				04901F3725BACFDA00DDFE3B /* SceneDelegate.swift in Sources */,
+				04901FEE25BB253300DDFE3B /* CollectionViewPageCells.swift in Sources */,
 				04901FB925BAEDB200DDFE3B /* UIViewController+Extension.swift in Sources */,
 				04901FAF25BAECD300DDFE3B /* LoginWorker.swift in Sources */,
 			);

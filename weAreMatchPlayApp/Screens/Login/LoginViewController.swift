@@ -31,30 +31,15 @@ class LoginViewController: UIViewController {
     func setUp() {
         passwordLabel.delegate = self
         passwordLabel.enablePasswordToggle()
-//        let presenter = LoginPresenter()
-//        presenter.loginView = self
-//        let worker = LoginWorker()
-//        let interactor = LoginInteractor()
-//        interactor.presenter = presenter
-//        interactor.worker = worker
-//        self.loginInteractor = interactor
     }
     
     func layoutSubviews() {
         view.backgroundColor = .white
-        navigationBar()
+        self.hideNavigationBar()
         setupTitleLabel()
         setupEmailLabel()
         setupPasswordLabel()
         setupLoginButton()
-    }
-    
-    func navigationBar() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        self.navigationController?.navigationBar.barStyle = .black
     }
     
     func setupTitleLabel() {
