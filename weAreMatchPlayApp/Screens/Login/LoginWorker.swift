@@ -14,10 +14,10 @@ protocol loginWorkerProtocol {
 
 class LoginWorker: loginWorkerProtocol {
     func login(userDetail: LoginDataModel, completion: @escaping (LoginSuccessResponseDataModel?, Error?) -> ()) {
-        let url = "https://api.wearematchplay.com/v2/auth/login"
+        let url = "\(NetworkConstants.baseUrl)/\(LoginConstants.loginUrl)"
         let parameters: [String: Any] = [
-            "email": userDetail.email,
-            "password": userDetail.password
+            LoginConstants.emailPlaceholder: userDetail.email,
+            LoginConstants.passwordPlaceholder: userDetail.password
         ]
         
         AF.request(url, method: .post, parameters: parameters).responseDecodable(of: LoginSuccessResponseDataModel.self) {
@@ -28,7 +28,7 @@ class LoginWorker: loginWorkerProtocol {
                 return
             }
             completion(response.value, nil)
-            print(response.value?.apiToken)
+            print(response.value?.apiToken as Any)
             return
         }
     }
