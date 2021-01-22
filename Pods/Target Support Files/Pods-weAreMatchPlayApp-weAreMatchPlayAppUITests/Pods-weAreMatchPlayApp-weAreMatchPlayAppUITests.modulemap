@@ -1,0 +1,6 @@
+framework module Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests {
+  umbrella header "Pods-weAreMatchPlayApp-weAreMatchPlayAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
