@@ -1,4 +1,4 @@
-A demo for this app can be found [here](https://drive.google.com/file/d/1HMRywUG5bYFPqhE_r1R5nn8T72Ed80fz/view?usp=sharing)
+A demo for this app can be found [here]()
 
 # What is the Movie App about?
 A basic iOS application that connects to the WAMP (We Are Match Play) API, authenticates a user and shows the user's feed.
