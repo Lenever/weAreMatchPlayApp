@@ -38,3 +38,7 @@ enum CollectionViewPageContent {
 enum StringsConstants {
     static let cellId = "cellId"
 }
+
+enum ListUsersConstants {
+    static let listUsersUrl = "matches"
+}

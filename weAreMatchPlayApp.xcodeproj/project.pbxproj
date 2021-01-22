@@ -25,6 +25,11 @@
 		04901FD525BB037500DDFE3B /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FD425BB037500DDFE3B /* StringConstants.swift */; };
 		04901FE925BB24E600DDFE3B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FE825BB24E600DDFE3B /* PageCell.swift */; };
 		04901FEE25BB253300DDFE3B /* CollectionViewPageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FED25BB253300DDFE3B /* CollectionViewPageCells.swift */; };
+		04901FFD25BB40A400DDFE3B /* ListUsersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04901FFC25BB40A400DDFE3B /* ListUsersInteractor.swift */; };
+		0490200525BB425100DDFE3B /* ListUsersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490200425BB425100DDFE3B /* ListUsersWorker.swift */; };
+		0490200D25BB457B00DDFE3B /* ListUsersPresentationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490200C25BB457B00DDFE3B /* ListUsersPresentationLogic.swift */; };
+		0490201525BB4E1400DDFE3B /* ListUsersDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490201425BB4E1400DDFE3B /* ListUsersDataModel.swift */; };
+		0490201A25BB5CEE00DDFE3B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490201925BB5CEE00DDFE3B /* UIImage+Extension.swift */; };
 		34F7BE69AC039A055E98CA10 /* Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04C8075B7D53E9702643C2 /* Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework */; };
 		57816BAA42555C804C215D5E /* Pods_weAreMatchPlayApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6073D3E364F57B60A6A7585A /* Pods_weAreMatchPlayApp.framework */; };
 		FA7D3E0D8A720B6D7491C828 /* Pods_weAreMatchPlayAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0B60C7C2206CB9DF31365A /* Pods_weAreMatchPlayAppTests.framework */; };
@@ -72,6 +77,11 @@
 		04901FD425BB037500DDFE3B /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		04901FE825BB24E600DDFE3B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		04901FED25BB253300DDFE3B /* CollectionViewPageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPageCells.swift; sourceTree = "<group>"; };
+		04901FFC25BB40A400DDFE3B /* ListUsersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersInteractor.swift; sourceTree = "<group>"; };
+		0490200425BB425100DDFE3B /* ListUsersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersWorker.swift; sourceTree = "<group>"; };
+		0490200C25BB457B00DDFE3B /* ListUsersPresentationLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersPresentationLogic.swift; sourceTree = "<group>"; };
+		0490201425BB4E1400DDFE3B /* ListUsersDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersDataModel.swift; sourceTree = "<group>"; };
+		0490201925BB5CEE00DDFE3B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		0C2C3D2423E6DD1D5F27027B /* Pods-weAreMatchPlayApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weAreMatchPlayApp.release.xcconfig"; path = "Target Support Files/Pods-weAreMatchPlayApp/Pods-weAreMatchPlayApp.release.xcconfig"; sourceTree = "<group>"; };
 		1D04C8075B7D53E9702643C2 /* Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weAreMatchPlayApp_weAreMatchPlayAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0B60C7C2206CB9DF31365A /* Pods_weAreMatchPlayAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weAreMatchPlayAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +204,7 @@
 				04901F9025BAE1DC00DDFE3B /* String+Extension.swift */,
 				04901F9825BAE20D00DDFE3B /* UITextField+Extension.swift */,
 				04901FB825BAEDB200DDFE3B /* UIViewController+Extension.swift */,
+				0490201925BB5CEE00DDFE3B /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				04901FA125BAEC0000DDFE3B /* LoginDataModel.swift */,
+				0490201425BB4E1400DDFE3B /* ListUsersDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				04901FCC25BB01DF00DDFE3B /* ListUsersViewController.swift */,
+				04901FFC25BB40A400DDFE3B /* ListUsersInteractor.swift */,
+				0490200425BB425100DDFE3B /* ListUsersWorker.swift */,
+				0490200C25BB457B00DDFE3B /* ListUsersPresentationLogic.swift */,
 				04901FED25BB253300DDFE3B /* CollectionViewPageCells.swift */,
 			);
 			path = ListUsers;
@@ -485,17 +500,22 @@
 			files = (
 				04901F9925BAE20D00DDFE3B /* UITextField+Extension.swift in Sources */,
 				04901FA225BAEC0000DDFE3B /* LoginDataModel.swift in Sources */,
+				0490201525BB4E1400DDFE3B /* ListUsersDataModel.swift in Sources */,
 				04901FAA25BAEC4900DDFE3B /* LoginInteractor.swift in Sources */,
 				04901FCD25BB01DF00DDFE3B /* ListUsersViewController.swift in Sources */,
 				04901FB425BAED1C00DDFE3B /* LoginPresenter.swift in Sources */,
 				04901F9125BAE1DC00DDFE3B /* String+Extension.swift in Sources */,
 				04901F3925BACFDA00DDFE3B /* LoginViewController.swift in Sources */,
 				04901F3525BACFDA00DDFE3B /* AppDelegate.swift in Sources */,
+				0490200525BB425100DDFE3B /* ListUsersWorker.swift in Sources */,
 				04901FE925BB24E600DDFE3B /* PageCell.swift in Sources */,
 				04901FD525BB037500DDFE3B /* StringConstants.swift in Sources */,
+				0490200D25BB457B00DDFE3B /* ListUsersPresentationLogic.swift in Sources */,
 				04901F3725BACFDA00DDFE3B /* SceneDelegate.swift in Sources */,
 				04901FEE25BB253300DDFE3B /* CollectionViewPageCells.swift in Sources */,
 				04901FB925BAEDB200DDFE3B /* UIViewController+Extension.swift in Sources */,
+				0490201A25BB5CEE00DDFE3B /* UIImage+Extension.swift in Sources */,
+				04901FFD25BB40A400DDFE3B /* ListUsersInteractor.swift in Sources */,
 				04901FAF25BAECD300DDFE3B /* LoginWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

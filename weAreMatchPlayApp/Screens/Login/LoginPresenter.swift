@@ -12,7 +12,7 @@ protocol LoginPresentationLogic {
     func displayDataError(prompt: String)
 }
 
-class LoginPresenter:LoginPresentationLogic {
+class LoginPresenter: LoginPresentationLogic {
     var loginView: LoginDisplayLogic?
     
     func displayDataSuccess(prompt: String) {

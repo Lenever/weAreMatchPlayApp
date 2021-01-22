@@ -131,7 +131,5 @@ extension LoginViewController: UITextFieldDelegate, LoginDisplayLogic {
     func displayFailureAlert(prompt: String) {
         self.handleNetworkError(prompt: prompt)
     }
-    
-    
 }
 

@@ -8,22 +8,41 @@
 import UIKit
 import SnapKit
 
+protocol ListUsersDisplayLogic {
+    func displaySuccessAlert(prompt: ListUsersDataModel)
+    func displayFailureAlert(prompt: String)
+}
+
 class ListUsersViewController: UIViewController {
     var titleView = UIView()
     private var collectionCells = CollectionViewPageCells.createPageCell()
+    var usersData: [Datum]?
     var userAPIToken: String?
+    var listUsersInteractor: ListUsersBusinessLogic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideNavigationBar()
+        setUp()
         setupTitleView()
         registerCell()
         view.addSubview(collectionView)
         view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        listUsersInteractor?.getUsers(apiToken: userAPIToken ?? String())
     }
         
     fileprivate func registerCell(){
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: StringsConstants.cellId)
+    }
+    
+    func setUp() {
+        let presenter = ListUsersPresenter()
+        presenter.listUsersView = self
+        let worker = ListUsersWorker()
+        let interactor = ListUsersInteractor()
+        interactor.presenter = presenter
+        interactor.worker = worker
+        self.listUsersInteractor = interactor
     }
     
     func setupTitleView() {
@@ -109,14 +128,16 @@ class ListUsersViewController: UIViewController {
     
 }
 
-extension ListUsersViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ListUsersViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ListUsersDisplayLogic {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return usersData?.count ?? 0
         return collectionCells.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StringsConstants.cellId, for: indexPath) as! PageCell
+//        let page = usersData?[indexPath.item]
         let page = collectionCells[indexPath.item]
         cell.pages = page
         return cell
@@ -126,5 +147,15 @@ extension ListUsersViewController:  UICollectionViewDelegate, UICollectionViewDa
     }
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
+    }
+    
+    func displaySuccessAlert(prompt: ListUsersDataModel) {
+        let view = ListUsersViewController()
+        view.usersData = prompt.data
+        navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func displayFailureAlert(prompt: String) {
+        self.handleNetworkError(prompt: prompt)
     }
 }

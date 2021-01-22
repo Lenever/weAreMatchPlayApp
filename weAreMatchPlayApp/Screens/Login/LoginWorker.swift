@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-protocol loginWorkerProtocol {
+protocol LoginWorkerProtocol {
     func login(userDetail: LoginDataModel, completion: @escaping (LoginSuccessResponseDataModel?, Error?) -> ())
 }
 
-class LoginWorker: loginWorkerProtocol {
+class LoginWorker: LoginWorkerProtocol {
     func login(userDetail: LoginDataModel, completion: @escaping (LoginSuccessResponseDataModel?, Error?) -> ()) {
         let url = "\(NetworkConstants.baseUrl)/\(LoginConstants.loginUrl)"
         let parameters: [String: Any] = [
